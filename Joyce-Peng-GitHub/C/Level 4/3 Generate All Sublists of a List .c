@@ -8,26 +8,26 @@ typedef struct {
 	int64_t *data;
 } vector_int64;
 
-void vector_int64_construct_void(vector_int64 *tthis) {
-	tthis->size = 0;
-	tthis->capacity = 0;
-	tthis->data = NULL;
+void vector_int64_construct_void(vector_int64 *this) {
+	this->size = 0;
+	this->capacity = 0;
+	this->data = NULL;
 }
-void vector_int64_push_back(vector_int64 *tthis, int64_t val) {
-	if (tthis->size == tthis->capacity) {
-		if (tthis->capacity) {
-			tthis->data = (int64_t *)realloc(tthis->data, (tthis->capacity <<= 1));
+void vector_int64_push_back(vector_int64 *this, int64_t val) {
+	if (this->size == this->capacity) {
+		if (this->capacity) {
+			this->data = realloc(this->data, (this->capacity <<= 1) * sizeof(int64_t));
 		} else {
-			tthis->data = (int64_t *)calloc(tthis->capacity = 1, sizeof(int64_t));
+			this->data = calloc(this->capacity = 1, sizeof(int64_t));
 		}
 	}
-	tthis->data[tthis->size++] = val;
+	this->data[this->size++] = val;
 }
-void vector_int64_destruct(vector_int64 *tthis) {
-	free(tthis->data);
-	tthis->size = 0;
-	tthis->capacity = 0;
-	tthis->data = NULL;
+void vector_int64_destruct(vector_int64 *this) {
+	free(this->data);
+	this->size = 0;
+	this->capacity = 0;
+	this->data = NULL;
 }
 
 int main(void) {
