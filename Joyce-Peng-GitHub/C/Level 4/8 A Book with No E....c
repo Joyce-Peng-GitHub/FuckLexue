@@ -36,7 +36,7 @@ int main(void) {
 			i_fewest = i;
 		}
 		printf("%c occurs in %.2Lf percent of words\n",
-			   ('A' + i), cnt_chars[i] * 100 / (long double)(cnt_words ?: 1));
+			   ('A' + i), cnt_chars[i] * 100 / (long double)cnt_words);
 	}
 	printf("\nThe letter that is easiest to avoid is '%c'\n", ('A' + i_fewest));
 	return 0;
