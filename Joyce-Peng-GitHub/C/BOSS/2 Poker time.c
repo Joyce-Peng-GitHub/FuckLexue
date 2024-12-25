@@ -29,7 +29,7 @@ int main(void) {
 			}
 		}
 		if (ops[1]) {
-			while (not_reached_endline) { // In case that the input includes a super long string
+			while (not_reached_endline) { // In case that the input includes a super long invalid line
 				fgets(ops, 10, stdin);
 				for (char *p = ops; *p; ++p) {
 					if (*p == '\n' || *p == '\r') {
