@@ -8,10 +8,12 @@ char s[N], t[N];
 size_t cnt[2][256];
 
 void count_chars(const char *s, const char *t) {
-	for (; *s; ++cnt[0][*(s++)])
-		;
-	for (; *t; ++cnt[1][*(t++)])
-		;
+	while (*s) {
+		++cnt[0][*(s++)];
+	}
+	while (*t) {
+		++cnt[1][*(t++)];
+	}
 }
 
 int main(void) {
