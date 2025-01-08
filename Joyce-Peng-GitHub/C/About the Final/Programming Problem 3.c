@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -20,10 +21,10 @@ int main(void) {
 		}
 	}
 	size_t max = 1;
+	bool contains_4 = false;
 	for (size_t i = 0, j; i != 5; ++i) {
 		if (s[i] == '4') {
-			puts("unlucky");
-			return 0;
+			contains_4 = true;
 		}
 		for (j = i + 1; j != 5 && s[j] == s[j - 1]; ++j)
 			;
@@ -42,7 +43,7 @@ int main(void) {
 		puts("lucky");
 		break;
 	default:
-		puts("just fine");
+		puts(contains_4 ? "unlucky" : "just fine");
 		break;
 	}
 	return 0;
