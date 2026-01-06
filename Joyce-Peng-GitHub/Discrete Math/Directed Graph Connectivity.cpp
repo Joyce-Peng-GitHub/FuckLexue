@@ -109,11 +109,10 @@ public:
 	std::pair<Weight, std::vector<bool>>
 	dinic(size_t src, size_t dst,
 		  typename std::conditional<std::is_arithmetic<Weight>::value,
-									Weight, unsigned>::type
-			  lim = std::numeric_limits<
-				  typename std::conditional<
-					  std::is_arithmetic<Weight>::value,
-					  Weight, unsigned>::type>::max()) const;
+									Weight, unsigned>::type lim =
+			  std::numeric_limits<typename std::conditional<
+				  std::is_arithmetic<Weight>::value,
+				  Weight, unsigned>::type>::max()) const;
 
 protected:
 	std::vector<Edge> m_edges;
